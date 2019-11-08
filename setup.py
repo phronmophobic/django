@@ -54,10 +54,11 @@ for dirpath, dirnames, filenames in os.walk(django_dir):
     # Ignore dirnames that start with '.'
     for i, dirname in enumerate(dirnames):
         if dirname.startswith('.'): del dirnames[i]
-    if '__init__.py' in filenames:
-        packages.append('.'.join(fullsplit(dirpath)))
-    elif filenames:
-        data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
+    packages.append('.'.join(fullsplit(dirpath)))
+    # if '__init__.py' in filenames:
+
+    # elif filenames:
+    #     data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
 
 # Small hack for working with bdist_wininst.
 # See http://mail.python.org/pipermail/distutils-sig/2004-August/004134.html
